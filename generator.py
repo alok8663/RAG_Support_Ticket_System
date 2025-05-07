@@ -1,25 +1,13 @@
-from openai import OpenAI
+import openai
 import os
-from dotenv import load_dotenv
 
-# Load your OpenAI API key from the .env file
-load_dotenv()
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
-def generate_response(query, retrieved_tickets):
-    context = "\n".join(retrieved_tickets)
-    messages = [
-        {
-            "role": "system",
-            "content": "You are a helpful customer support assistant. Use the retrieved tickets to answer the user's query accurately."
-        },
-        {
-            "role": "user",
-            "content": f"My query is: {query}\n\nRelevant past tickets:\n{context}"
-        }
-    ]
-    response = client.chat.completions.create(
+def generate_response(query, retrieved_texts):
+    context = "\n".join(retrieved_texts)
+    prompt = f"User Query: {query}\n\nRelevant Tickets:\n{context}\n\nGenerate a helpful support response."
+    response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
-        messages=messages,
+        messages=[{"role": "user", "content": prompt}]
     )
-    return response.choices[0].message.content.strip()
+    return response['choices'][0]['message']['content']
