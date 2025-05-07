@@ -2,6 +2,15 @@
 
 A Retrieval-Augmented Generation (RAG) based support ticket system that leverages custom knowledge to answer user queries using an interactive Streamlit interface.
 
+## 📁 Project Structure
+##### app.py
+##### retriever.py
+##### generator.py
+##### tickets.json
+##### requirements.txt
+##### README.md
+##### .gitignore
+
 
 ## 🔧 Setup Instructions
 
@@ -16,17 +25,9 @@ conda create -p venv python==3.8 -y
 conda activate venv/ 
 
 
-### Install Dependencies
+### 3. Install Dependencies
 pip install -r requirements.txt
 
-### Run the Application
+### 4. Run the Application
 streamlit run app.py
 
-### 📁 Project Structure
-app.py
-retriever.py
-generator.py
-tickets.json
-requirements.txt
-README.md
-.gitignore
