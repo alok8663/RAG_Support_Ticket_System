@@ -7,13 +7,13 @@ A Retrieval-Augmented Generation (RAG) based support ticket system that leverage
 
 ### 1. Clone the Repository
 
-```bash
+bash
 git clone https://github.com/alok8663/RAG_Support_Ticket_System.git
 cd RAG_Support_Ticket_System
 
-Create and activate a virtual environment
-
-conda create -p venv python==3.8 -y 
+### 2. Create and activate a virtual environment
+conda create -p venv python==3.8 -y
+conda activate venv/ 
 
 
 ### Install Dependencies
@@ -24,13 +24,9 @@ streamlit run app.py
 
 ### 📁 Project Structure
 app.py
-
 retriever.py
-
 generator.py
-
 tickets.json
-
 requirements.txt
-
 README.md
+.gitignore
